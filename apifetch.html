@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Table</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        fetch('http://run.mocky.io/v3/9b184f9d-bf48-4467-9d8f-137ea0eba817')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                var res = "";
+                document.getElementById("t-bd").innerHTML = res;
+                data.data.forEach((element, i) => {
+                    res += ("<tr>" +
+                        "<td>" + ++i + "</td>" +
+                        "<td>" + element.name + "</td>" +
+                        "<td>" + element.office + "</td>" +
+                        "<td>" + element.position + "</td>" +
+                        "<td>" + element.salary + "</td>" +
+                        "</tr>")
+                });
+                document.getElementById("t-bd").innerHTML = res;
+            });
+    </script>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <th>Sr</th>
+            <th>Name</th>
+            <th>Office</th>
+            <th>Position</th>
+            <th>Salary</th>
+        </thead>
+        <tbody id="t-bd"></tbody>
+    </table>
+</body>
+</html>
